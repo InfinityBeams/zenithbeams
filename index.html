@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Zenith Beams — Premium Sites</title>
+  <meta
+    name="description"
+    content="Zenith Beams — Premium tools, services, and custom sites."
+  />
+  <meta name="theme-color" content="#171116" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #171116;
+      --bg-soft: #1d151c;
+      --surface: #241a22;
+      --surface-light: #2b2029;
+      --surface-hover: #33242e;
+
+      --primary: #d99aae;
+      --primary-light: #efb7c8;
+      --primary-dark: #9c5c74;
+
+      --text: #f8edf2;
+      --text-soft: #d2bdc6;
+      --muted: #a48d98;
+
+      --border: rgba(239, 183, 200, 0.12);
+      --border-hover: rgba(239, 183, 200, 0.25);
+
+      --radius: 18px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    body::selection {
+      background: var(--primary);
+      color: var(--bg);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* Background atmosphere */
+
+    .background-glow {
+      position: fixed;
+      width: 650px;
+      height: 650px;
+      top: -280px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: radial-gradient(
+        circle,
+        rgba(156, 92, 116, 0.18) 0%,
+        rgba(156, 92, 116, 0.05) 40%,
+        transparent 70%
+      );
+      pointer-events: none;
+      z-index: -1;
+      filter: blur(20px);
+    }
+
+    .background-glow-two {
+      position: fixed;
+      width: 400px;
+      height: 400px;
+      top: 500px;
+      right: -250px;
+      background: radial-gradient(
+        circle,
+        rgba(156, 92, 116, 0.08),
+        transparent 70%
+      );
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      background: rgba(23, 17, 22, 0.78);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .nav-container {
+      max-width: 1120px;
+      height: 74px;
+      margin: auto;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-family: "Manrope", sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.7px;
+    }
+
+    .brand-icon {
+      width: 39px;
+      height: 39px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: linear-gradient(
+        145deg,
+        #d99aae,
+        #9c5c74
+      );
+      color: #24151e;
+      font-size: 23px;
+      font-weight: 800;
+      box-shadow: 0 5px 18px rgba(156, 92, 116, 0.2);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-links a {
+      padding: 9px 14px;
+      border-radius: 9px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-links .nav-discord {
+      margin-left: 8px;
+      padding: 10px 17px;
+      color: #24151e;
+      background: var(--primary);
+    }
+
+    .nav-links .nav-discord:hover {
+      color: #24151e;
+      background: var(--primary-light);
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      font-size: 23px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      max-width: 920px;
+      margin: auto;
+      padding: 82px 24px 92px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 15px;
+      border: 1px solid var(--border-hover);
+      border-radius: 999px;
+      background: rgba(217, 154, 174, 0.06);
+      color: var(--primary-light);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      margin-bottom: 27px;
+    }
+
+    .hero-badge span {
+      font-size: 14px;
+      color: var(--primary);
+    }
+
+    .hero h1 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(42px, 7vw, 68px);
+      line-height: 1.08;
+      letter-spacing: -3px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 23px;
+    }
+
+    .hero h1 .accent {
+      background: linear-gradient(
+        110deg,
+        #f3c1d0,
+        #c47e98
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-description {
+      max-width: 590px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.85;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 45px;
+      padding: 0 19px;
+      border-radius: 11px;
+      border: 1px solid transparent;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #24151e;
+      box-shadow: 0 8px 25px rgba(156, 92, 116, 0.14);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(156, 92, 116, 0.2);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.035);
+      color: var(--text-soft);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: var(--border-hover);
+      color: var(--text);
+      transform: translateY(-2px);
+    }
+
+    .button-arrow {
+      font-size: 17px;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover .button-arrow {
+      transform: translateX(3px);
+    }
+
+    /* =========================
+       STATS
+    ========================= */
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 70px;
+      margin-top: 72px;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .stat strong {
+      font-family: "Manrope", sans-serif;
+      font-size: 31px;
+      line-height: 1;
+      letter-spacing: -1.5px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .stat-divider {
+      width: 1px;
+      height: 38px;
+      background: var(--border);
+    }
+
+    /* =========================
+       SERVICES SECTION
+    ========================= */
+
+    .section {
+      max-width: 1120px;
+      margin: auto;
+      padding: 75px 28px 95px;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .section-label {
+      display: inline-block;
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .section-heading h2 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(27px, 4vw, 36px);
+      letter-spacing: -1.5px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .section-heading p {
+      max-width: 430px;
+      margin: 10px auto 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    /* =========================
+       SERVICE CARD
+    ========================= */
+
+    .service-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 335px;
+      padding: 27px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.025),
+          transparent 45%
+        ),
+        var(--surface);
+      overflow: hidden;
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      top: -90px;
+      right: -70px;
+      background: radial-gradient(
+        circle,
+        rgba(217, 154, 174, 0.12),
+        transparent 70%
+      );
+      pointer-events: none;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-hover);
+      background: var(--surface-hover);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.16);
+    }
+
+    .service-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-icon {
+      width: 51px;
+      height: 51px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(217, 154, 174, 0.1);
+      border: 1px solid rgba(217, 154, 174, 0.14);
+      color: var(--primary-light);
+      font-size: 25px;
+    }
+
+    .featured {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(217, 154, 174, 0.09);
+      color: var(--primary-light);
+      font-size: 10px;
+      font-weight: 700;
+      border: 1px solid rgba(217, 154, 174, 0.12);
+    }
+
+    .featured::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #d99aae;
+      box-shadow: 0 0 8px #d99aae;
+    }
+
+    .service-card h3 {
+      position: relative;
+      z-index: 1;
+      font-family: "Manrope", sans-serif;
+      font-size: 23px;
+      letter-spacing: -0.8px;
+      margin-top: 35px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .service-card p {
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
+      margin-top: 11px;
+      max-width: 390px;
+    }
+
+    .service-link {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 46px;
+      margin-top: auto;
+      padding: 0 15px;
+      border-radius: 10px;
+      background: rgba(217, 154, 174, 0.09);
+      border: 1px solid rgba(217, 154, 174, 0.13);
+      color: var(--primary-light);
+      font-size: 12px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .service-link span {
+      font-size: 18px;
+      transition: transform 0.2s ease;
+    }
+
+    .service-link:hover {
+      background: var(--primary);
+      color: #24151e;
+      border-color: var(--primary);
+    }
+
+    .service-link:hover span {
+      transform: translateX(3px);
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 28px 90px;
+    }
+
+    .cta-inner {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 54px 25px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(
+          circle at 50% -100%,
+          rgba(217, 154, 174, 0.14),
+          transparent 65%
+        ),
+        var(--surface);
+    }
+
+    .cta-inner::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      width: 220px;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        transparent
+      );
+    }
+
+    .cta-inner h2 {
+      position: relative;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(25px, 4vw, 34px);
+      letter-spacing: -1.2px;
+      font-weight: 800;
+    }
+
+    .cta-inner p {
+      position: relative;
+      max-width: 440px;
+      margin: 12px auto 24px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      font-family: "Manrope", sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .footer-copy {
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 5px;
+    }
+
+    .creator-credit {
+      color: #806b75;
+      font-size: 10px;
+      margin-top: 5px;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-light);
+    }
+
+    /* =========================
+       SCROLL ANIMATION
+    ========================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(15px);
+      transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 700px) {
+      .nav-container {
+        height: 68px;
+        padding: 0 18px;
+      }
+
+      .brand {
+        font-size: 17px;
+      }
+
+      .brand-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 11px;
+        font-size: 21px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 14px;
+        right: 14px;
+        padding: 8px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 3px;
+        border: 1px solid var(--border-hover);
+        border-radius: 14px;
+        background: rgba(36, 26, 34, 0.98);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        text-align: center;
+        padding: 12px;
+      }
+
+      .nav-links .nav-discord {
+        margin-left: 0;
+        margin-top: 3px;
+      }
+
+      .hero {
+        padding: 65px 20px 75px;
+      }
+
+      .hero-badge {
+        font-size: 11px;
+        padding: 7px 13px;
+        margin-bottom: 25px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+        letter-spacing: -2.2px;
+        margin-bottom: 21px;
+      }
+
+      .hero-description {
+        font-size: 13px;
+        line-height: 1.8;
+        max-width: 340px;
+      }
+
+      .hero-actions {
+        gap: 10px;
+        margin-top: 29px;
+      }
+
+      .hero-actions .btn {
+        min-height: 43px;
+        padding: 0 16px;
+        font-size: 12px;
+      }
+
+      .stats {
+        gap: 38px;
+        margin-top: 62px;
+      }
+
+      .stat strong {
+        font-size: 28px;
+      }
+
+      .stat span {
+        font-size: 11px;
+      }
+
+      .stat-divider {
+        height: 30px;
+      }
+
+      .section {
+        padding: 62px 18px 75px;
+      }
+
+      .section-heading {
+        margin-bottom: 26px;
+      }
+
+      .section-heading h2 {
+        font-size: 29px;
+      }
+
+      .section-heading p {
+        font-size: 12px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .service-card {
+        min-height: 320px;
+        padding: 23px;
+        border-radius: 16px;
+      }
+
+      .service-icon {
+        width: 47px;
+        height: 47px;
+        border-radius: 13px;
+        font-size: 23px;
+      }
+
+      .featured {
+        padding: 5px 9px;
+        font-size: 9px;
+      }
+
+      .service-card h3 {
+        font-size: 22px;
+        margin-top: 30px;
+      }
+
+      .service-card p {
+        font-size: 12px;
+        margin-top: 10px;
+      }
+
+      .service-link {
+        min-height: 44px;
+        font-size: 11px;
+      }
+
+      .cta {
+        padding: 0 18px 70px;
+      }
+
+      .cta-inner {
+        padding: 45px 20px;
+      }
+
+      .cta-inner h2 {
+        font-size: 26px;
+      }
+
+      .cta-inner p {
+        font-size: 12px;
+      }
+
+      footer {
+        padding: 25px 18px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-links {
+        gap: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="background-glow"></div>
+  <div class="background-glow-two"></div>
+
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
+
+  <header class="navbar">
+    <div class="nav-container">
+
+      <a href="#" class="brand" aria-label="Zenith Beams home">
+        <span class="brand-icon">✧</span>
+        <span>Zenith Beams</span>
+      </a>
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+
+        <a
+          href="https://discord.gg/ugdhaupb4"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav-discord"
+        >
+          Join Discord
+        </a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+      <div class="hero-badge">
+        <span>✦</span>
+        #1 Gen Sites
+      </div>
+
+      <h1>
+        Zenith <span class="accent">Beams</span>
+      </h1>
+
+      <p class="hero-description">
+        Zenith Beams | #1 Sites — We are the best service provider
+        out there. Premium tools and services, built for your needs.
+      </p>
+
+      <div class="hero-actions">
+
+        <a
+          href="https://discord.gg/ugdhaupb4"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          Join Discord
+          <span class="button-arrow">→</span>
+        </a>
+
+        <a href="#services" class="btn btn-secondary">
+          View Services
+        </a>
+
+      </div>
+
+      <div class="stats">
+
+        <div class="stat">
+          <strong>99.9%</strong>
+          <span>Uptime</span>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat">
+          <strong>24/7</strong>
+          <span>Support</span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         SERVICES
+    ========================= -->
+
+    <section class="section" id="services">
+
+      <div class="section-heading">
+        <span class="section-label">What we offer</span>
+
+        <h2>Our Services</h2>
+
+        <p>
+          Explore our premium services designed to meet all your needs.
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+        <article class="service-card reveal">
+
+          <div class="service-top">
+
+            <div class="service-icon">✧</div>
+
+            <span class="featured">Featured</span>
+
+          </div>
+
+          <h3>ZenithBms</h3>
+
+          <p>
+            Create your custom ZenithBms site with powerful features,
+            modern designs, and everything you need to get started.
+          </p>
+
+          <a
+            href="https://app.beamse.pro"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="service-link"
+          >
+            <span>Explore ZenithBms</span>
+            <span>↗</span>
+          </a>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
+    <section class="cta" id="about">
+
+      <div class="cta-inner reveal">
+
+        <h2>Let's build something great.</h2>
+
+        <p>
+          Join our community to explore our services, get support,
+          and stay connected with Zenith Beams.
+        </p>
+
+        <a
+          href="https://discord.gg/ugdhaupb4"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          Join Our Discord
+          <span class="button-arrow">→</span>
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div>
+        <div class="footer-brand">Zenith Beams</div>
+
+        <div class="footer-copy">
+          © 2026 Zenith Beams. All rights reserved.
+        </div>
+
+        <div class="creator-credit">
+          Made by @hey049905
+        </div>
+      </div>
+
+      <div class="footer-links">
+
+        <a href="#services">Services</a>
+
+        <a
+          href="https://discord.gg/ugdhaupb4"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Discord
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+    // Mobile navigation
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuBtn.setAttribute("aria-expanded", isOpen);
+      menuBtn.textContent = isOpen ? "✕" : "☰";
+    });
+
+    // Close mobile menu after clicking a link
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.textContent = "☰";
+      });
+    });
+
+    // Subtle scroll reveal animation
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+
+</body>
+</html>
